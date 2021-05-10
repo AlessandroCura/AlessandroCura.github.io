@@ -2,6 +2,15 @@
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script defer>
+    function turn(element) {
+        if (element.className == "marbleOff") {
+            element.className = "marbleOn";
+            element.parentNode.childNodes[1].className = "railOn";
+        } else {
+            element.className = "marbleOff";
+            element.parentNode.childNodes[1].className = "railOff";
+        }
+    }
 </script>
 <!-- <link rel="stylesheet" type="text/css" media="all" href="FirstStyleMap.css" /> -->
 
@@ -12,17 +21,28 @@
         font-weight: bolder;
     }
     
+    div {
+        color: #F4F1DE;
+    }
+    
+    .colorTheme {
+        color: #222222;
+        color: #4E5340;
+        color: #E88D67;
+        color: #F4F1DE;
+    }
+    
     body {
-        display: flex;
+        display: block;
         background-attachment: fixed;
-        background-color: #1D2D30;
+        background-color: #222222;
         justify-content: center;
     }
     
     .aButton {
         text-decoration-line: none;
-        color: #1D2D30;
-        background-color: #FEFFE7;
+        color: #222222;
+        background-color: #F4F1DE;
         padding: 1rem;
         padding-bottom: 0.5rem;
         padding-top: 0.5rem;
@@ -31,25 +51,81 @@
     }
     
     .aButton:hover {
-        background-color: #3b5257;
-        color: #FEFFE7;
+        background-color: #E88D67;
     }
     
     button {
         height: 2rem;
     }
+    
+    .switch {
+        margin: 0rem;
+    }
+    
+    .railOff {
+        position: relative;
+        width: 2.7rem;
+        height: 1.4rem;
+        background-color: #4E5340;
+        border-radius: 0.7rem;
+        top: inherit;
+        margin: 0rem;
+        transition: ease-out 0.3s;
+    }
+    
+    .railOn {
+        position: relative;
+        width: 2.7rem;
+        height: 1.4rem;
+        background-color: #F4F1DE;
+        border-radius: 0.7rem;
+        top: inherit;
+        margin: 0rem;
+        transition: ease-out 0.3s;
+    }
+    
+    .marbleOff {
+        margin: 0rem;
+        position: relative;
+        width: 1.2rem;
+        padding-bottom: 0.6rem;
+        padding-top: 0.6rem;
+        background-color: #E88D67;
+        border-radius: 0.6rem;
+        bottom: 1.3rem;
+        left: 0.1rem;
+        transition: ease-out 0.3s;
+    }
+    
+    .marbleOn {
+        margin: 0rem;
+        position: relative;
+        width: 1.2rem;
+        padding-bottom: 0.6rem;
+        padding-top: 0.6rem;
+        background-color: #E88D67;
+        border-radius: 0.6rem;
+        bottom: 1.3rem;
+        left: 1.4rem;
+        transition: ease-out 0.3s;
+    }
 </style>
 
 <head>
     <title>
-        Alessandro's Page Hub
+        @nonban.ale
     </title>
 </head>
 
 <body>
-    <a class="aButton" href="https://AlessandroCura.github.io/WebPages/GuitarHeroes/GuitarHero.html">
-         GuitarHeroes
-    </a>
+    <div>
+        <h1>Benvenuti</h1>
+    </div>
+    <span class="switch">
+        <p class="railOff"></p>
+        <p class="marbleOff" onclick="turn(this)"></p>
+    </span>
+    <a class="aButton" href="https://AlessandroCura.github.io/WebPages/GuitarHeroes/GuitarHero.html">GuitarHeroes</a>
 </body>
 
 </html>
